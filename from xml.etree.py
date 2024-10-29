@@ -1,4 +1,4 @@
-from xml.etree.ElementTree import Element, SubElement, ElementTree
+from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
 
 # Project details
@@ -72,7 +72,7 @@ for proj in projects:
         el.text = value
 
 # Convert the ElementTree to a pretty-printed XML string
-xml_str = xml.dom.minidom.parseString(ElementTree(root).write(encoding='unicode')).toprettyxml(indent="   ")
+xml_str = xml.dom.minidom.parseString(tostring(root)).toprettyxml(indent="   ")
 
 # Write to XML file
 file_name = "advanced_python_projects.xml"
@@ -80,3 +80,4 @@ with open(file_name, "w") as f:
     f.write(xml_str)
 
 print(f"XML file '{file_name}' created successfully.")
+
