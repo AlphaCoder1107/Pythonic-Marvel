@@ -1,0 +1,13 @@
+# Adjusting to use `tostring` from `xml.etree.ElementTree` module correctly
+
+from xml.etree.ElementTree import tostring
+
+# Convert the ElementTree to a pretty-printed XML string
+xml_str = xml.dom.minidom.parseString(tostring(root, encoding='utf-8')).toprettyxml(indent="   ")
+file_path = "/mnt/data/advanced_python_projects.xml"
+
+# Write to the XML file
+with open(file_path, "w") as f:
+    f.write(xml_str)
+
+file_path
